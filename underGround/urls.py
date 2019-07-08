@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 import Calender.views
 
+
 urlpatterns = [
+<<<<<<< HEAD
+    path('admin/', admin.site.urls), 
+=======
     path('admin/', admin.site.urls),
     path('', Calender.views.home, name="home"),
     path('calender/', include('Calender.urls')),
@@ -25,4 +29,6 @@ urlpatterns = [
     path('dating/', include('Dating.urls')),
     path('findtheroom/', include('FindTHeRoom.urls')),
     path('lostandfound/', include('LostAndFound.urls')),
+>>>>>>> master
 ]
+
