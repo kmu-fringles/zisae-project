@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import FindTHeRoom.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('find/',blog.views.home,name='findmain'),
+    path('admin/', admin.site.urls), 
 ]
 
-]
