@@ -19,16 +19,12 @@ import Calender.views
 
 
 urlpatterns = [
-<<<<<<< HEAD
-    path('admin/', admin.site.urls), 
-=======
     path('admin/', admin.site.urls),
     path('', Calender.views.home, name="home"),
-    path('calender/', include('Calender.urls')),
+    # path('calender/', include('Calender.urls')),
     path('carpool/', include('CarPool.urls')),
     path('dating/', include('Dating.urls')),
     path('findtheroom/', include('FindTHeRoom.urls')),
-    path('lostandfound/', include('LostAndFound.urls')),
->>>>>>> master
+    
 ]
 
