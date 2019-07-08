@@ -8,14 +8,13 @@
     <a href="{% url 'findtheroom_roomwrite'%}">글쓰러 가기</a>
 </div>
 
-{% for find in finds.all %}
- <div class="container">
-     <h1>{{find.title}}</h1>
-     <p>{{find.pub_date}}</p>
-     <p>{{ find.summary }}<a href="{% url 'detail' find.id %}">....more</a></p>
-
- </div>
- {% endfor %}
+<h1>디테일 페이지입니다</h1>
+<div class="container jumbotron">
+    <h1>{{ find.title }}</h1>
+    <p>{{ find.pub_date }}</p>
+    <p>{{ find.body }}</p>
+    <a href="{% url 'findtheroom_home' %}">돌아가기</a>
+</div>
 </body>
 
 <style>
