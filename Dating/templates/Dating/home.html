@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% for Dating in blogs.all %}
-    <div class="container">
-        <h1>{{ Dating.title }}</h1>
-        <p>{{ Dating.pub_date }}</p>
-        <p>{{ Dating.body }}</p>
-    </div>
-{% endfor %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    html 작업
+</div>
 </body>
-</html>
+
+<style>
+    css 작업
+</style>
+{% endblock %}

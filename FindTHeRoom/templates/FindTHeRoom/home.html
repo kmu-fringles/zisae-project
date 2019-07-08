@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>여보세여</h1>
-    {% for find in finds.all %}
-    <div class="container">
-        <h1>{{ find.title }}</h1>
-        <p>{{ find.pub_date }}</p>
-        <p>{{ find.body }}</p>
-    </div>
-{% endfor %}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    find
+</div>
 </body>
-</html>
+
+<style>
+    css 작업
+</style>
+{% endblock %}

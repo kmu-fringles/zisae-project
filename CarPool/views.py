@@ -5,8 +5,8 @@ from .models import CarPool
 
 def carpool(request):
     carpools=CarPool.objects
-    return render(request,'CarPool.html',{'carpools':carpool})
+    return render(request,'CarPool/CarPool.html',{'carpools':carpool})
 
-def detail(request, carpool_id)
+def detail(request, carpool_id) :
     carpool_detail = get_object_or_404(CarPool,pk=carpool_id)
-    return render(request,'CarPool.html',{'carpool':carpool_detail})
+    return render(request,'CarPool/CarPool.html',{'carpool':carpool_detail})

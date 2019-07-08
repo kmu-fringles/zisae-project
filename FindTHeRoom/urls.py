@@ -4,7 +4,7 @@ import FindTHeRoom.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('find/', FindTHeRoom.views.home, name='findmain'),
+    path('home/', FindTHeRoom.views.home, name='findtheroom_home'),
     
 ]
 
