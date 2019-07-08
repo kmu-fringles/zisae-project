@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'Calender.apps.CalenderConfig',
     'CarPool.apps.CarpoolConfig',
     'Dating.apps.DatingConfig',
-    'FindTheRoom.apps.FindtheroomConfig',
+    'FindTheRoom.apps.FindTHeroomConfig',
     'LostAndFound.apps.LostandfoundConfig',
 ]
 
