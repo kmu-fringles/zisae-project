@@ -5,5 +5,6 @@ from .models import Dating
 
 # Create your views here.
 def d_home(request):
-    return render(request,'Dating/d_home.html')
+    blogs= Dating.objects
+    return render(request,'Dating/home.html',{'blogs':blogs})
 
