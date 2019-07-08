@@ -4,5 +4,5 @@ import Dating.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Dating.views.d_home, name='d_home'),
+    path('', Dating.views.home, name='d_home'),
 ]
