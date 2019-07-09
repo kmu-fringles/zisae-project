@@ -22,4 +22,5 @@ def create(request) :
     reservation.team = request.GET['team']
     reservation.body = request.GET['body']
     reservation.save()
-    return redirect('/calender/' + str(reservation.id))
+    # return redirect('/calender/' + str(reservation.id))
+    return redirect('/calender/home')
