@@ -6,3 +6,5 @@ def real_home(request) :
 
 def home(request) :
     return render(request, 'calender/home.html')
+
+

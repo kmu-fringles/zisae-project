@@ -13,6 +13,7 @@
     <h1>{{ find.title }}</h1>
     <p>{{ find.pub_date }}</p>
     <p>{{ find.body }}</p>
+    <a href="{%url 'delete' find.id%}" class="card-link">삭제하기</a>
     <a href="{% url 'findtheroom_home' %}">돌아가기</a>
 </div>
 </body>

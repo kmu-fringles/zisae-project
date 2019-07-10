@@ -8,6 +8,6 @@ urlpatterns = [
     path('roomwrite/',FindTHeRoom.views.roomwrite, name='findtheroom_roomwrite'),
     path('roomwrite/create/',FindTHeRoom.views.create,name='create'),
     path('find/<int:find_id>/',FindTHeRoom.views.detail,name='detail'),
-    
+    path('delete/<int:delete_find_id>', FindTHeRoom.views.delete, name='delete'),
 ]
 

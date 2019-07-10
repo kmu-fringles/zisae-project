@@ -22,3 +22,8 @@ def create(request):
 def detail(request, find_id):
     find_detail= get_object_or_404(Find, pk=find_id)
     return render(request,'FindTHeRoom/detail.html',{'find': find_detail})
+
+def delete(request, delete_find_id):
+    delete_find = get_object_or_404(Find , pk=delete_find_id)
+    delete_find.delete() 
+    return redirect('/findtheroom/home')   
