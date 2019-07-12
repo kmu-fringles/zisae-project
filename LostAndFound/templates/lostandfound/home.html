@@ -2,13 +2,22 @@
 
 {% block content %}
 <div class="container">
-   lost
+    <a href="{% url 'new' %}">분실물 등록하러 가기</a>
+    {% for lost in losts.all %}
+    <div class="card">
+        <div class="card-body">
+            <p><a href="{% url 'detail' lost.id %}">분실물: {{lost.title}}</a></p>
+            <p>작성자: {{lost.writer}}</p>
+            <p>자세한 내용: {{lost.summary}}</p>
+
+        </div>
+    </div>
+    {% endfor%}
+</div>
 </div>
 </body>
 
 <style>
-    .container {
-        
-    }
+    .container {}
 </style>
 {% endblock %}
