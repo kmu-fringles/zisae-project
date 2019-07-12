@@ -4,10 +4,13 @@
 <div class="container">
     <h1>분실물 명: {{ lost.title }}</h1>
     <p>작성자: {{lost.writer }}</p>
-    <p>작성날짜: {{lost.pub_date }}</p>
+    <p>작성날짜: {{lost.pub_date }} </p>
     <p>상세내용: {{lost.body }}</p>
+    <p>분실물 사진:</p><img class="card-img-top" src="{{lost.image.url}}">
     <hr>
     <a href="{% url 'lostandfound_home' %}">분실물 목록 보러가기</a>
+    <a href="{% url 'delete' lost.id %}">삭제하기</a>
+    <a href="{% url 'edit' lost.id %}">수정하기</a>
 </div>
 </div>
 </body>
