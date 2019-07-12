@@ -1,12 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import LostAndFound
 from django.utils import timezone
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request) :
     losts = LostAndFound.objects
-    return render(request, 'lostandfound/home.html', {'losts' : losts})
+    lost_list = LostAndFound.objects.all()
+    paginator = Paginator(lost_list, 5)
+    page = request.GET.get('page')
+    page_losts = paginator.get_page(page)
+    return render(request, 'lostandfound/home.html', {'losts' : losts, 'page_losts' : page_losts})
 
 def detail(request, lost_id) :
     lost_detial = get_object_or_404(LostAndFound, pk = lost_id)

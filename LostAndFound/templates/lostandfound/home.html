@@ -3,7 +3,9 @@
 {% block content %}
 <div class="container">
     <a href="{% url 'new' %}">분실물 등록하러 가기</a>
-    {% for lost in losts.all %}
+    <br>
+    <br>
+    {% for lost in page_losts %}
     <div class="card">
         <div class="card-body">
             <p><a href="{% url 'detail' lost.id %}">분실물: {{lost.title}}</a></p>
@@ -13,6 +15,21 @@
         </div>
     </div>
     {% endfor%}
+    {%if page_losts.has_previous%}
+    <a href="?page=1">First</a>
+    <a href="?page={{page_losts.previous_page_number}}">Previous</a>
+    {%endif%}
+
+    <span>{{page_losts.number}}</span>
+    <span>of</span>
+    <span>{{page_losts.paginator.num_pages}}</span>
+
+    {%if page_losts.has_next%}
+    <a href="?page={{page_losts.next_page_number}}">Next</a>
+    <a href="?page={{page_losts.paginator.num_pages}}">Last</a>
+    {%endif%}
+
+    
 </div>
 </div>
 </body>
