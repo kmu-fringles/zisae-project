@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import LostAndFound
 from django.utils import timezone
 from django.core.paginator import Paginator
+from .forms import CommentForm
 
 # Create your views here.
 def home(request) :
@@ -13,8 +14,18 @@ def home(request) :
     return render(request, 'lostandfound/home.html', {'losts' : losts, 'page_losts' : page_losts})
 
 def detail(request, lost_id) :
-    lost_detial = get_object_or_404(LostAndFound, pk = lost_id)
-    return render(request, 'lostandfound/detail.html', {'lost': lost_detial})
+    lost_detail = get_object_or_404(LostAndFound, pk = lost_id)
+
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        comment_form.instance.lost_id = lost_id
+        if comment_form.is_valid():
+            comment = comment_form.save()
+
+    comment_form = CommentForm()
+    comments = lost_detail.comments.all()
+
+    return render(request, 'lostandfound/detail.html', {'lost': lost_detail, "comments" :comments, "comment_form":comment_form})
 
 def new(request) :
     return render(request, 'lostandfound/new.html')
