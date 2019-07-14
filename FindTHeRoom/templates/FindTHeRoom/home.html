@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+민
 <div class="container">
     find
+    <a href="{% url 'new' %}">e</a>
+
+
+    {% for find in finds %}
+    <h2>{{find.title}}</h2>
+    <h2>{{find.body}}</h2>
+    <hr>
+    {% endfor %}
 </div>
 </body>
 
