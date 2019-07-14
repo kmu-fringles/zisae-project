@@ -2,7 +2,19 @@
 
 {% block content %}
 <div class="container">
-    html 작업
+    <form action="{% url 'new' %}" method="GET">
+        <button type="input" class="btn btn-light">글쓰기</button>
+    </form>
+    {% for blog in blogs.all %}
+    <div class="container">
+        <h1>{{ blog.title }}</h1>
+        <p>{{ blog.pub_date }}</p>
+        <p>{{ blog.summary }}</p>
+    </div>
+    {% endfor %}
+
+
+
 </div>
 </body>
 

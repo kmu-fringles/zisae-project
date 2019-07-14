@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container jumbotron">
+    <h1>{{ dating.title }}</h1>
+    <p>{{ dating.pub_date }}</p>
+    <p>{{ dating.body }}</p>
+    <a href="{% url 'dating_home'%}">돌아가기</a>
+    
+</div>
+
+</body>
+
+<style>
+    css 작업
+</style>
+{% endblock %}
