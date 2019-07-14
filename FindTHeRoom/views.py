@@ -24,9 +24,20 @@ def create(request):
         return render(request,'findtheroom/new.html',{'form':form})
 
 def update(request,pk):
-    return 
+
+    find= get_object_or_404(Find,pk=pk)
+
+    form=NewFind(request.POST, instance=find)
+
+    if form.is_valid():
+        form.save()
+        return redirect('findtheroom_home')
+
+    return render(request,'FindTHeRoom/new.html',{'form':form})   
 
 def delete(request,pk):
-    return 
+    find = get_object_or_404(Find,pk=pk)
+    find.delete()
+    return  redirect('findtheroom_home')
 
 

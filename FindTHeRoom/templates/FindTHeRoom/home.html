@@ -9,8 +9,11 @@
 
     {% for find in finds %}
     <h2>{{find.title}}</h2>
+    <h2>{{find.pub_date}}</h2>
     <h2>{{find.body}}</h2>
     <hr>
+    <a href="{%url 'update' find.id%}">수정</a>
+    <a href="{%url 'delete' find.id %}">삭제</a>
     {% endfor %}
 </div>
 </body>
