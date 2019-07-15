@@ -6,6 +6,7 @@ class LostAndFound(models.Model) :
     pub_date = models.DateTimeField('date published')
     writer = models.CharField(max_length = 200)
     body = models.TextField()
+    image = models.ImageField(upload_to='images/%Y/%m/%d/')
 
     def __str__(self) :
         return self.title

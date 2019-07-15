@@ -8,7 +8,7 @@ from .forms import CommentForm
 def home(request) :
     losts = LostAndFound.objects
     lost_list = LostAndFound.objects.all()
-    paginator = Paginator(lost_list, 5)
+    paginator = Paginator(lost_list, 9)
     page = request.GET.get('page')
     page_losts = paginator.get_page(page)
     return render(request, 'lostandfound/home.html', {'losts' : losts, 'page_losts' : page_losts})
@@ -31,13 +31,14 @@ def new(request) :
     return render(request, 'lostandfound/new.html')
 
 def create(request) :
-    lost = LostAndFound()
-    lost.title = request.GET['title']
-    lost.writer = request.GET['writer']
-    lost.pub_date = request.GET['pub_date']
-    lost.body = request.GET['body']
-    lost.image= request.GET['image']
-    lost.save()
+    if request.method == 'POST' and request.FILES['image']:
+        lost = LostAndFound()
+        lost.title = request.POST['title']
+        lost.writer = request.POST['writer']
+        lost.pub_date = request.POST['pub_date']
+        lost.body = request.POST['body']
+        lost.image= request.FILES['image']
+        lost.save()
     return redirect('/lostandfound/'+str(lost.id))
 
 def delete(request, lost_id) :
@@ -50,10 +51,12 @@ def edit(request, lost_id) :
     return render(request, 'lostandfound/edit.html', {'lost': edit_lost})
 
 def update(request, lost_id) :
-    update_lost = LostAndFound.objects.get(id = lost_id)
-    update_lost.title = request.POST['title']
-    update_lost.writer = request.POST['writer']
-    update_lost.pub_date = request.POST['pub_date']
-    update_lost.body = request.POST['body']
-    update_lost.save()
-    return redirect('lostandfound_home')
+    if request.method == 'POST' and request.FILES['image']:
+        update_lost = LostAndFound.objects.get(id = lost_id)
+        update_lost.title = request.POST['title']
+        update_lost.writer = request.POST['writer']
+        update_lost.pub_date = request.POST['pub_date']
+        update_lost.body = request.POST['body']
+        update_lost.image = request.FILES['image']
+        update_lost.save()
+        return redirect('lostandfound_home')

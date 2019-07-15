@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
+<!-- 
+[base.html]
+<head>
+</head>
 
+<body>
+ -->
 {% block content %}
 <div class="container">
     <h1>분실물 명: {{ lost.title }}</h1>
     <p>작성자: {{lost.writer }}</p>
     <p>작성날짜: {{lost.pub_date }} </p>
     <p>상세내용: {{lost.body }}</p>
-    <p>분실물 사진:</p><img class="card-img-top" src="{{lost.image.url}}">
+    <p>분실물 사진:</p><img src="{{lost.image.url}}">
     <hr>
     <form action="" method="POST">
         {% csrf_token %}

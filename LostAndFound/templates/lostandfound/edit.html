@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+<!-- 
+[base.html]
+<head>
+</head>
 
+<body>
+ -->
 {% block content %}
 <div class="container">
-    <form action="{% url 'update' lost.id %}" method="POST">
+    <form action="{% url 'update' lost.id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         
         <h4>내가 발견한 분실물: <input type="text" name="title" placeholder="{{lost.title}}"></h4>
@@ -10,7 +16,8 @@
         <p>작성날짜: <input type="text" name="pub_date" placeholder="{{lost.pub_date}}">(2016-07-12 형식으로 작성해주세요) </p>
         <p>자세한 내용: </p>
         <textarea cols=40 rows=10 name="body">{{lost.body}}</textarea>
-        <input type="file" name="image" class="upload-hidden">
+        <p>변경 전 사진:</p><img src="{{lost.image.url}}">
+        <input type="file" name="image">
         <br>
         <input class="btn btn-dark" type="submit" value="게시물 등록하기">        
 
