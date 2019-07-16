@@ -34,10 +34,6 @@ def edit(request, edit_dating_id):
     edit_post = get_object_or_404(Blog, pk=edit_dating_id)
     return render(request, 'new.html', {'post':edit_post})
 
-def update(request, update_dating_id):
-    update_post = get_object_or_404(Dating, pk=update_dating_id)
-    update_post.title = request.POST['title']
-    update_post.writer = request.POST['writer']
-    update_post.body = request.POST['body']
-    update_post.save()
-    return redirect('dating_home')
+
+
+

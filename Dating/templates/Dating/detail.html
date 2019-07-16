@@ -6,6 +6,12 @@
     <p>{{ dating.pub_date }}</p>
     <p>{{ dating.body }}</p>
     <a href="{% url 'dating_home'%}">돌아가기</a>
+    <div class="delete">
+        <p><a href="{% url 'delete' dating.id %}">삭제</a></p>  
+    </div>
+    <div class="edit">
+        <p><a href="{% url 'edit' dating.id %}">수정</a></p>  
+    </div>
     
 </div>
 
