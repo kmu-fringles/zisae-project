@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+        <h1>Make Your Blog! </h1>
+        <br>
+
+        
+       <h1> <a href="{% url 'new'%}">새로운 글 작성하기</a></h1>
+     
+        <h2>블로그 글 목록</h2>
+        
+        <form action="{% url 'search' %}" method="get">
+            <input type="text" name="q" value="{{ q }}">
+            <input type="submit" value="검색">
+        </form>
+        
+        {% for carpool in carpools%}
+        <a href="{% url 'detail' carpool.id %}">
+            제목 : {{carpool.title}} 
+        </a>
+        <br>
+        작성자 : {{carpool.writer}}
+        <br>
+        {{carpool.pub_date}}
+        <br>
+        <hr>
+        {% endfor %}
+      
+    
+</div>
+</body>
+
+{% endblock %}
+
+
