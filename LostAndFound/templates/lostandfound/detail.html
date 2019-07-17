@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+<!-- 
+[base.html]
+<head>
+</head>
+
+<body>
+ -->
+{% block content %}
+<div class="container">
+    <h1>분실물 명: {{ lost.title }}</h1>
+    <p>작성자: {{lost.writer }}</p>
+    <p>작성날짜: {{lost.pub_date }} </p>
+    <p>상세내용: {{lost.body }}</p>
+    <p>분실물 사진:</p><img src="{{lost.image.url}}">
+    <hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="comment_writer">
+            <p>작성자: {{comment_form.comment_writer}}</p>
+        </div>
+        <div class="comment_text">
+            <p>댓글: {{comment_form.comment_text}}</p>
+        </div>
+        <input type="submit" value="Comment" class="btn btn-outline-primary">
+    </form>
+
+    <!-- <table class="table table-striped"> -->
+    {% for comment in comments %}
+    <p>작성자 :{{comment.comment_writer}}</p>
+    <p>댓글: {{comment.comment_text}}</p>
+    <hr>
+    {% endfor %}
+    <a href="{% url 'lostandfound_home' %}">분실물 목록 보러가기</a>
+    <a href="{% url 'delete' lost.id %}">삭제하기</a>
+    <a href="{% url 'edit' lost.id %}">수정하기</a>
+</div>
+</div>
+</body>
+
+<style>
+    .container {}
+</style>
+{% endblock %}

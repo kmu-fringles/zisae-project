@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import Calender.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,7 +27,6 @@ urlpatterns = [
     path('carpool/', include('CarPool.urls')),
     path('dating/', include('Dating.urls')),
     path('findtheroom/', include('FindTHeRoom.urls')),
-    path('lostandfound/', include('LostAndFound.urls')),
-    
-]
+    path('lostandfound/', include('LostAndFound.urls')),    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
