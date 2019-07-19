@@ -12,6 +12,3 @@ class Dating(models.Model):
 
     def summary(self):
         return self.body[:100]
-
-
-

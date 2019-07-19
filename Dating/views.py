@@ -32,8 +32,4 @@ def delete(request, del_dating_id):
 
 def edit(request, edit_dating_id):
     edit_post = get_object_or_404(Blog, pk=edit_dating_id)
-    return render(request, 'new.html', {'post':edit_post})
-
-
-
-
+    return render(request, 'Dating/home.html', {'post':edit_post})

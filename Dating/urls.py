@@ -8,6 +8,6 @@ urlpatterns = [
     path('new/', Dating.views.new, name='new'),
     path('create/', Dating.views.create, name='create'),
     path('<int:dating_id>/', Dating.views.detail, name='detail'),
-    path('<int:dating_id>/delete',Dating.views.delete, name='delete'),
-    path('detail/<int:dating_id>/edit', Dating.views.edit, name='edit'),
+    path('delete/<int:dating_id>/',Dating.views.delete, name='delete'),
+    path('edit/<int:dating_id>/', Dating.views.edit, name='edit'),
 ]
