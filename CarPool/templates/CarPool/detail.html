@@ -20,7 +20,23 @@
  <a href="{% url 'carpool:delete' carpool.id %}">삭제하기</a>
  <hr>
  <a href="{% url 'carpool:carpool_home' %}"> home </a>
-    
+
+<h5>Comments</h5>
+{%for comment in comments%}
+<p>작성자:{{comment.writer}}</p>
+<p>comment:{{comment.content}}</p>
+{%endfor%}
+<hr>
+<form action="{%url 'carpool:new_comment' carpool.id%}" method="POST">
+   {% csrf_token %}
+   작성자:<input name="writer" type="text">
+   <br>
+        내용 :<br> <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit">
+        <br>
+</form>
+
 </div>
 </body>
 {% endblock %}

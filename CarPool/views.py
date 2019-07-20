@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from .models import CarPool
+from .models import *
 from django.utils import timezone
 # Create your views here.
 
@@ -10,7 +10,8 @@ def carpool(request):
 
 def detail(request, carpool_id) :
     carpool = get_object_or_404(CarPool,pk=carpool_id)
-    return render(request,'CarPool/detail.html', {'carpool' : carpool})
+    comments_list = Comment.objects.filter(post=carpool_id)
+    return render(request,'CarPool/detail.html', {'carpool' : carpool,'comments':comments_list})
 
 def new(request):
     return render(request,'CarPool/new.html')
@@ -40,6 +41,14 @@ def update(request, update_car_id):
     update_car.body = request.POST['content']
     update_car.save()
     return redirect('carpool:detail', update_car_id)
+
+def new_comment(request,comment_id):
+    comment= Comment()
+    comment.writer = request.POST['writer']
+    comment.content = request.POST['content']
+    comment.post = get_object_or_404(CarPool,pk = comment_id)
+    comment.save()
+    return redirect('carpool:detail',comment_id)
 
 def search(request):
     q=request.GET['q']

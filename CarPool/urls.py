@@ -11,5 +11,6 @@ urlpatterns = [
     path('delete/<int:delete_car_id>',CarPool.views.delete, name="delete"),
     path('edit/<int:edit_car_id>', CarPool.views.edit, name='edit'),
     path('update/<int:update_car_id>',CarPool.views.update,name="update"),
+    path('new_comment/<int:comment_id>',CarPool.views.new_comment,name="new_comment"),
     path('search/',CarPool.views.search, name="search"),
 ]
