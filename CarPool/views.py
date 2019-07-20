@@ -22,12 +22,12 @@ def create(request):
     new_car.pub_date = timezone.datetime.now()
     new_car.body = request.POST['content']
     new_car.save()
-    return redirect('carpool_home')
+    return redirect('carpool:carpool_home')
 
 def delete(request, delete_car_id):
     delete_car = get_object_or_404(CarPool, pk = delete_car_id)
     delete_car.delete()
-    return redirect('carpool_home')
+    return redirect('carpool:carpool_home')
 
 def edit(request, edit_car_id):
     edit_car = get_object_or_404(CarPool, pk = edit_car_id)
@@ -39,7 +39,7 @@ def update(request, update_car_id):
     update_car.writer = request.POST['writer']
     update_car.body = request.POST['content']
     update_car.save()
-    return redirect('detail', update_car_id)
+    return redirect('carpool:detail', update_car_id)
 
 def search(request):
     q=request.GET['q']

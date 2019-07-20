@@ -8,7 +8,7 @@
         <div>
         <ol>
             {% for search in ans %}
-            <a href="{% url 'detail' search.id %}">
+            <a href="{% url 'carpool:detail' search.id %}">
                 <li>{{search.title}} | {{search.writer}} | {{search.pub_date}}</li>
             </a>
             <br>
