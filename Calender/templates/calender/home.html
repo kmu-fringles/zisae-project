@@ -2,11 +2,119 @@
 
 {% block content %}
 <div class="container">
-    html 작업
+    <a href="">예약하러 가기</a>
+    {% for reservation in reservations.all %}
+        <p>{{reservation.team}}</p>
+        <p>{{reservation.body}}</p>
+        <p><a href="{% url 'Calender:detail' reservation.id %}">자세히 보기</a> </p>
+        <hr>
+    {% endfor %}
+    <table>
+        <caption>Lorem</caption>
+        <thead>
+
+            <!-- 행이름: 가게 목록 -->
+
+            <tr>
+                <th></th>
+                <th>store1</th>
+                <th>store2</th>
+                <th>store3</th>
+                <th>store4</th>
+                <th>store5</th>
+                <th>store6</th>
+                <th>store7</th>
+                <th>store8</th>
+                <th>store9</th>
+                <th>store10</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>6:00 - 7:00</th>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+            </tr>
+            <tr>
+                <th>7:00 - 8:00</th>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+            </tr>
+            <tr>
+                <th>8:00 - 9:00</th>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+            </tr>
+            <tr>
+                <th>9:00 - 10:00</th>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+            </tr>
+            <tr>
+                <th>10:00 - </th>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+                <td><a href="{% url 'new' %}">예약하러 가기</a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Table Foot</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
 </div>
 </body>
 
 <style>
-    css 작업
+    table {
+        width: 100%;
+        margin-top:30px;
+    }
+    table, th, td {
+        border: 1px solid #bcbcbc;
+    }
 </style>
 {% endblock %}
