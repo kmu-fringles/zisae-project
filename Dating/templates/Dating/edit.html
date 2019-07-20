@@ -1,25 +1,19 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<div class="container">
-    <form action="{% url 'edit' %}">
-            <h1>수정 페이지</h1>
-        <h4>제목: </h4>
-        <input type="text" name="title">
-        <br>
-        <br>
-        <h4>본문: </h4>
-        <textarea cols=40 rows=10 name="body"></textarea>
-        <br>
-        <br>
-        <input class="btn btn-dark" type="submit" value="제출하기">
-        
-    </form>
-</div>
+<h1>글을 수정중입니다.</h1>
+<form action="{% url 'update' dating.id %}" method="POST">
+        {% csrf_token %}
+        제목 : <input type="text" name='title' value="{{dating.title}}">
 
-</body>
+        <br>
+        <br>
+        본문 : <textarea name="body" id="" cols="30" rows="10" placeholder="write your content" >{{dating.body}}</textarea>
+        <br>
+        <br>
+        <button type='submit'>작성하기</button>
 
-<style>
-    css 작업
-</style>
-{% endblock %}
+
+
+</form>
+
+{%endblock%}

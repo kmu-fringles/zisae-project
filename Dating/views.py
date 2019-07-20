@@ -25,11 +25,18 @@ def create(request):
     dating.save()
     return redirect('/dating/'+str(dating.id))
 
-def delete(request, del_dating_id):
-    delete_post = get_object_or_404(Dating, pk=del_dating_id)
-    delete_post.delete()
+def delete(request, dating_id):
+    delete_dating = get_object_or_404(Dating, pk=dating_id)
+    delete_dating.delete()
     return redirect('dating_home')
 
-def edit(request, edit_dating_id):
-    edit_post = get_object_or_404(Blog, pk=edit_dating_id)
-    return render(request, 'Dating/home.html', {'post':edit_post})
+def edit(request, dating_id):
+    edit_dating = get_object_or_404(Dating, pk=dating_id)
+    return render(request, 'Dating/edit.html', {'dating':edit_dating})
+
+def update(request, dating_id):
+    update_dating = Dating.objects.get(id=dating_id)
+    update_dating.title = request.POST['title']
+    update_dating.body = request.POST['body']
+    update_dating.save()
+    return redirect('dating_home')
