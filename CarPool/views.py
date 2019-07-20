@@ -30,8 +30,8 @@ def delete(request, delete_car_id):
     return redirect('carpool_home')
 
 def edit(request, edit_car_id):
-    edit_car = get_object_or_404(CarPool, pk = delete_car_id)
-    return render(request,'CarPool/home.html',{'carpool':edit_car})
+    edit_car = get_object_or_404(CarPool, pk = edit_car_id)
+    return render(request,'CarPool/edit.html',{'carpool':edit_car})
 
 def update(request, update_car_id):
     update_car=get_object_or_404(CarPool,pk=update_car_id)
@@ -39,7 +39,7 @@ def update(request, update_car_id):
     update_car.writer = request.POST['writer']
     update_car.body = request.POST['content']
     update_car.save()
-    return redirect('carpool_home')
+    return redirect('detail', update_car_id)
 
 def search(request):
     q=request.GET['q']
