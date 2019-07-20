@@ -16,7 +16,7 @@ class LostAndFound(models.Model) :
 
 class Comment(models.Model) :
     lost = models.ForeignKey(LostAndFound, on_delete = models.CASCADE, related_name = "comments")
-    comment_created = models.DateTimeField(auto_now_add=True)
+    comment_created = models.DateField('date published')
     comment_writer = models.CharField(max_length = 200)
     comment_text = models.TextField()
 
