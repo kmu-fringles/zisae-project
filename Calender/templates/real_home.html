@@ -1,7 +1,26 @@
-진짜 home
+{% extends 'base.html' %}
 
-<a href="{% url 'calender_home'%}">calender로 가기</a>
-<a href="{% url 'carpool_home'%}">carpool로 가기</a>
-<a href="{% url 'dating_home'%}">dating로 가기</a>
-<a href="{% url 'findtheroom_home'%}">findtheroom로 가기</a>
-<a href="{% url 'lostandfound_home'%}">lostandfound로 가기</a>
+{% block content %}
+<div class="container">
+    <div class="title">
+        <h1>모지?(모두의 지하세계)</h1>>
+    </div>
+
+    <a href="{% url 'calender_home'%}">calender로 가기</a>
+    <br>
+    <a href="{% url 'carpool_home'%}">carpool로 가기</a>
+    <br>
+    <a href="{% url 'dating_home'%}">dating로 가기</a>
+    <br>
+    <a href="{% url 'findtheroom_home'%}">findtheroom로 가기</a>
+    <br>
+    <a href="{% url 'lostandfound_home'%}">lostandfound로 가기</a>
+</div>
+</body>
+
+<style>
+    .title {
+        text-align: center;
+    }
+</style>
+{% endblock %}
