@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <form action="{% url 'new' %}" method="GET">
+    <form action="{% url 'dating:new' %}" method="GET">
         <button type="input" class="btn btn-light">글쓰기</button>
     </form>
     {% for blog in blogs.all %}

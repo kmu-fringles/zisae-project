@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path
 import Dating.views
 
+app_name = "Dating"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Dating.views.d_home, name='dating_home'),
