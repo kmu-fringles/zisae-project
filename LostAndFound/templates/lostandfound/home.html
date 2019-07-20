@@ -21,7 +21,7 @@
                         <img src="{{lost.image.url}}" class="card-img-top" alt="...">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em"><a href="{% url 'detail' lost.id %}">분실물: {{lost.title}}</a></text>
+                            dy=".3em"><a href="{% url 'LostAndFound:detail' lost.id %}">분실물: {{lost.title}}</a></text>
                         <div class="card-body">
                             <p class="card-text">작성 날짜: {{lost.pub_date}}</p>
                             <div class="d-flex justify-content-between align-items-center">

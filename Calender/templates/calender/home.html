@@ -6,7 +6,7 @@
     {% for reservation in reservations.all %}
         <p>{{reservation.team}}</p>
         <p>{{reservation.body}}</p>
-        <p><a href="{% url 'detail' reservation.id %}">자세히 보기</a> </p>
+        <p><a href="{% url 'Calender:detail' reservation.id %}">자세히 보기</a> </p>
         <hr>
     {% endfor %}
     <table>

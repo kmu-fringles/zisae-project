@@ -4,6 +4,8 @@ import LostAndFound.views
 from django.conf import settings
 from django.conf.urls.static import static
 
+app_name = "LostAndFound"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', LostAndFound.views.home, name='lostandfound_home'),

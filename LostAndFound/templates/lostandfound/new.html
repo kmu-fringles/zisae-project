@@ -8,7 +8,7 @@
  -->
 {% block content %}
 <div class="container">
-    <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'LostAndFound:create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h4>내가 발견한 분실물: <input type="text" name="title"></h4>
         <p>작성자: <input type="text" name="writer"> </p>
