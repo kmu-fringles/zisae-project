@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>{{ find.title }}</h1> <!-- views.py에서 {'post' : post_detail}로 작성함 -->
+            <p>{{ find.writer }}</p>
+            <p>{{ find.pub_date }}</p>
+            <p>{{ find.body }}</p>
+        </div>
+    </div>
+    <div class="choice">
+        <div class="seeList">
+            <a href="{% url 'findtheroom:home' %}">목록으로 가기</a>
+        </div>
+        
+        <div class="changePost">
+            <a class="edit" href="{% url 'findtheroom:edit' post.id %}">수정하기</a>
+            <a class="delete" href="{% url 'findtheroom:delete' post.id %}">삭제하기</a>
+        </div>
+    </div>
+</div>

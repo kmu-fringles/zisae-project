@@ -16,13 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import Calender.views
-<<<<<<< HEAD
 import FindTHeRoom.views
-import FindTHeRoom.urls
-=======
 from django.conf import settings
 from django.conf.urls.static import static
->>>>>>> master
 
 
 urlpatterns = [

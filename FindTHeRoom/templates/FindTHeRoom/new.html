@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
-    <br>
-    <input type="submit" valuse="제출">
+<form action = "{% url 'findtheroom:create' %}">
+    <div class="title">
+        <input type="text" name="title" placeholder="제목을 입력하세요">
+        <input type="text" name="writer" placeholder="작성자">
+
+        <textarea cols=40 rows=10 name="body" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <div class="new">
+        <input class="btn btn-dark" type="submit" style="background-color: #2b457a;" value="게시하기">
+    </div>
 </form>
 {% endblock %}

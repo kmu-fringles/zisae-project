@@ -1,20 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-민
 <div class="container">
-    find
-    <a href="{% url 'new' %}">e</a>
-
-
-    {% for find in finds %}
-    <h2>{{find.title}}</h2>
-    <h2>{{find.pub_date}}</h2>
-    <h2>{{find.body}}</h2>
-    <hr>
-    <a href="{%url 'update' find.id%}">수정</a>
-    <a href="{%url 'delete' find.id %}">삭제</a>
+    {% for find in page_posts %}
+    <div class="card">
+        <div class="card-body">
+            <h1>{{ find.title }}</h1>
+            <p>{{ find.writer }}</p>
+            <p>{{ find.pub_date }}</p>
+            <p>{{ find.summary }}<a href="{% url 'findtheroom:detail' find.id %}">...더보기</a></p>
+        </div>
+    </div>
     {% endfor %}
+
+    {% if page_posts.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{page_posts.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    <span>{{page_posts.number}}</span>
+    <span>of</span>
+    <span>{{page_posts.paginator.num_pages}}</span>
+
+    {%if page_posts.has_next%}
+    <a href="?page={{page_posts.next_page_number}}">Next</a>
+    <a href="?page={{page_posts.paginator.num_pages}}">Last</a>
+    {%endif%}
 </div>
 </body>
 

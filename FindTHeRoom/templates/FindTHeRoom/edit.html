@@ -1,0 +1,17 @@
+<div class="container">
+    
+    <form action="{% url 'findtheroom:update' find.id %}" method = "POST">
+        {% csrf_token %}
+        <div class="edit_title">
+            <p>제목 : <input type="text" name="title" value="{{ find.title }}"></p>
+        </div>
+        <p>작성자 : <input type="text" name="writer" value="{{ find.writer }}"></p>
+        <p>본문 : </p>
+        
+        <textarea cols=100% rows=10 name="body" >{{ find.body }}</textarea>  
+            
+        <hr>
+        <div class="update">
+            <input class="btn btn-dark" type="submit" style="background-color: #2b457a;" value="저장하기">
+        </div>
+    <form>
